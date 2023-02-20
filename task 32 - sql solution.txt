@@ -1,0 +1,43 @@
+SELECT count(DISTINCT(patient_id)) AS
+unique_patients
+FROM campusx.insurance_data
+WHERE region NOT IN ('southwest')
+;
+
+
+
+SELECT SUM(claim) AS total_claim
+FROM campusx.insurance_data
+WHERE gender = 'male'
+AND smoker = 'yes'
+
+
+
+SELECT count(*) 
+FROM campusx.insurance_data
+WHERE age < 17 AND
+bloodpressure > 80+(17*2) AND
+bloodpressure < 100+(17*2) 
+
+
+SELECT avg(claim) AS Avg_claim_amt FROM campusx.insurance_data
+WHERE diabetic = 'yes' AND
+gender = 'female' AND
+smoker = 'no'
+
+
+UPDATE campusx.insurance_data
+SET claim = 50000
+WHERE PatientID > 1234 AND
+PatientID > 5000;
+
+
+
+
+
+
+DELETE FROM campusx.insurance_data
+WHERE smoker = 'yes' AND
+children = 0 ;
+
+
